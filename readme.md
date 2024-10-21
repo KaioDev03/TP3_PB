@@ -8,7 +8,7 @@ Criado arquivos Py para:
     Inserir Dados nas tabelas.
     Consultar os dados.
 
-Criado Arquivos em CSV para a inserção de dados e armezanemento e alteração de dados quando necessário. Cada arquivo específico para uma tabela para não houver problemas de excluir algum dado errado.
+Criado Arquivos em CSV para a inserção de dados e armazenemento e alteração de dados quando necessário. Cada arquivo específico para uma tabela para não houver problemas de excluir algum dado errado.
 
     cargos.csv
     departamentos.csv
