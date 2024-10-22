@@ -8,12 +8,13 @@ Criado arquivos Py para:
     Inserir Dados nas tabelas.
     Consultar os dados.
 
-Criado Arquivos em CSV para a inserção de dados e armazenemento e alteração de dados quando necessário. Cada arquivo específico para uma tabela para não houver problemas de excluir algum dado errado.
+Criado Arquivos em CSV para a inserção de dados e armazenamento e alteração de dados quando necessário. Cada arquivo específico para uma tabela para não houver problemas de excluir algum dado errado.
 
     cargos.csv
     departamentos.csv
     dependentes.csv
     funcionarios.csv
+    historico_salarios.csv
 
 
 Atividade Prática da faculdade "Instituto INFNET" Projeto de Bloco com o professor : Alcione Dolavale

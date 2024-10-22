@@ -5,19 +5,18 @@ cursor = con.cursor()
 '''Criação de todas as tabelas e dados necessários para o trabalho. Tabelas(funcionarios, cargos, departamentos, historico de salários, dependentes.) '''
 '''Tabela Funcionarios.'''
 cursor.execute('''
-    CREATE TABLE funcionarios (
-        id integer PRIMARY KEY AUTOINCREMENT,
-        nome text not null,
-        idade integer,
-        cargo_id,
-        departamento_id integer,
-        FOREIGN KEY (cargo_id) REFERENCES cargos(id),
-        FOREIGN KEY (departamentos_id) REFERENCES departamentos(id)
+    CREATE TABLE IF NOT EXISTS funcionarios (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nome TEXT NOT NULL,
+        idade INTEGER,
+        cargo_id INTEGER,
+        nome_departamento TEXT NOT NULL,
+        FOREIGN KEY (cargo_id) REFERENCES cargos(id)
     )
 ''')
 '''Tabela Cargos.'''
 cursor.execute('''
-    CREATE TABLE cargos(
+    CREATE TABLE IF NOT EXISTS cargos(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nome TEXT NOT NULL,
         nivel TEXT NOT NULL
@@ -25,31 +24,32 @@ cursor.execute('''
 ''')
 '''Tabela Departamentos.'''
 cursor.execute('''
-    CREATE TABLE departamentos
+    CREATE TABLE IF NOT EXISTS departamentos(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nome TEXT NOT NULL,
     horario_funcionamento TEXT NOT NULL
     )
 ''')
-'''Tabela Histórico de Funcionários.'''
+'''Tabela Histórico de Historico salários.'''
 cursor.execute('''
-    CREATE TABLE historico_salarios(
+    CREATE TABLE IF NOT EXISTS historico_salarios(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     funcionario_id INTEGER,
-    data_contratacao TEXT NOT NULL,
-    data_aumento TEXT NOT NULL,
-    salario_anterior TEXT NOT NULL,
+    data_aumento TEXT,
+    salario_anterior FLOAT,
+    salario_atual FLOAT,
     FOREIGN KEY (funcionario_id) REFERENCES funcionarios(id)
     )
 ''')
 '''Tabela de Dependentes.'''
 cursor.execute('''
-    CREATE TABLE dependentes(
+    CREATE TABLE IF NOT EXISTS dependentes(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         funcionario_id INTEGER,
         nome TEXT NOT NULL,
         idade INTEGER,
         parentesco TEXT NOT NULL,
+        genero TEXT NOT NULL,
         FOREIGN KEY (funcionario_id) REFERENCES funcionario(id)           
 )
 ''')
@@ -57,4 +57,4 @@ cursor.execute('''
 con.commit()
 con.close()
 
-print("Tabela Criada com sucesso.")
+print("Tabelas Criadas com sucesso.")
