@@ -55,6 +55,33 @@ def inserir_historico_salario(cursor):
             VALUES (?, ?, ?, ?)''', (row['funcionario_id'], row['data_aumento'], row['salario_anterior'], row['salario_atual']))
             
             print("Dados de histórico de salário inseridos com sucesso!")
+
+def inserir_dados_projetos(cursor):
+    # Lista de status válidos
+    status_validos = ['Em Planejamento', 'Em Execução', 'Concluído', 'Cancelado']
+
+    with open('./data/projetos.csv', mode='r', encoding='utf-8') as file:
+        csv_reader = csv.DictReader(file)
+        for row in csv_reader:
+            status = row['status']
+            if status not in status_validos:
+                print(f"Status inválido encontrado: {status}. Pulando este registro.")
+                continue  # Pula o registro com status inválido
+
+            cursor.execute('''
+                INSERT INTO projetos (nome_projeto, descricao, data_inicio, data_conclusao, funcionario_responsavel_id, custo, status)
+                VALUES (?, ?, ?, ?, ?, ?, ?)''', 
+                (row['nome_projeto'], row['descricao'], row['data_inicio'], row['data_conclusao'],
+                 row['funcionario_responsavel_id'], row['custo'], row['status']))
+
+def inserir_dados_recursos(cursor):
+    with open('./data/recursos_do_projetos.csv', mode='r', encoding='utf-8') as file:
+        csv_reader = csv.DictReader(file)
+        for row in csv_reader:
+            cursor.execute('''
+                INSERT INTO recursos_do_projeto (projeto_id, descricao, tipo_recurso, quantidade_utilizada, data_utilizacao)
+                VALUES (?, ?, ?, ?, ?)''',
+                (row['projeto_id'], row['descricao'], row['tipo_recurso'], row['quantidade_utilizada'], row['data_utilizacao']))
             
 def main():
     '''Função principal para gerenciar a inserção de dados no banco de dados da empresa
@@ -71,6 +98,9 @@ def main():
     inserir_funcionarios(cursor)
     inserir_cargos(cursor)
     inserir_historico_salario(cursor)
+    inserir_dados_projetos(cursor)
+    inserir_dados_recursos(cursor)
+
     
     conn.commit()
     conn.close()

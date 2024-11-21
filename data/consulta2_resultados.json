@@ -1,0 +1,14 @@
+[
+    {
+        "descricao": "Equipamento de monitoramento",
+        "total_utilizado": 10.0
+    },
+    {
+        "descricao": "Infraestrutura de servidores",
+        "total_utilizado": 8.0
+    },
+    {
+        "descricao": "Equipamento de laborat\u00f3rio",
+        "total_utilizado": 5.0
+    }
+]

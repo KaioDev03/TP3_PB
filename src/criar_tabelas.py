@@ -53,6 +53,32 @@ cursor.execute('''
         FOREIGN KEY (funcionario_id) REFERENCES funcionario(id)           
 )
 ''')
+'''Tabela de Projetos'''
+cursor.execute('''
+   CREATE TABLE IF NOT EXISTS projetos (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome_projeto TEXT NOT NULL,
+    descricao TEXT,
+    data_inicio TEXT NOT NULL,
+    data_conclusao TEXT,
+    funcionario_responsavel_id INTEGER,
+    custo FLOAT,
+    status TEXT CHECK(status IN ('Em Planejamento', 'Em Execução', 'Concluído', 'Cancelado')) NOT NULL,
+    FOREIGN KEY (funcionario_responsavel_id) REFERENCES funcionarios(id)
+);
+''')
+'''Tabela de Recursos do Projeto'''
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS recursos_do_projeto (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    projeto_id INTEGER,
+    descricao TEXT NOT NULL,
+    tipo_recurso TEXT CHECK(tipo_recurso IN ('financeiro', 'material', 'humano')) NOT NULL,
+    quantidade_utilizada FLOAT,
+    data_utilizacao TEXT NOT NULL,
+    FOREIGN KEY (projeto_id) REFERENCES projetos(id)
+);
+''')
 '''Fechamento da conexão do banco de dados.'''
 con.commit()
 con.close()

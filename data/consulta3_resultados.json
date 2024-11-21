@@ -1,0 +1,10 @@
+[
+    {
+        "departamento": "Desenvolvimento",
+        "custo_total": 50000.0
+    },
+    {
+        "departamento": "Financeiro",
+        "custo_total": 30000.0
+    }
+]

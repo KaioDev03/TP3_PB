@@ -1,0 +1,6 @@
+nome_projeto,descricao,data_inicio,data_conclusao,funcionario_responsavel_id,custo,status
+Projeto A,Desenvolvimento de um sistema de monitoramento,2023-01-01,2023-06-30,1,50000.00,Concluído
+Projeto B,Pesquisa e desenvolvimento de novos dispositivos,2023-02-01,2023-12-31,2,70000.00,Em Execução
+Projeto C,Implementação de sistema de segurança em rede,2023-04-01,2023-08-31,3,30000.00,Concluído
+Projeto D,Aprimoramento do sistema de monitoramento,2023-05-01,2023-11-30,4,45000.00,Em Planejamento
+Projeto E,Atualização de software de câmeras de segurança,2023-03-01,2023-07-31,5,55000.00,Cancelado

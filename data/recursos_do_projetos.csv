@@ -1,0 +1,11 @@
+projeto_id,descricao,tipo_recurso,quantidade_utilizada,data_utilizacao
+1,Equipamento de monitoramento,material,10,2023-01-15
+1,Equipe de desenvolvimento,humano,5,2023-02-20
+2,Pesquisa de mercado,financeiro,20000.00,2023-03-10
+2,Equipamento de laboratório,material,5,2023-06-10
+3,Sistema de segurança,humano,4,2023-05-15
+3,Infraestrutura de servidores,material,8,2023-07-01
+4,Consultoria externa,financeiro,15000.00,2023-06-01
+4,Equipe de desenvolvimento,humano,3,2023-09-10
+5,Licenciamento de software,financeiro,5000.00,2023-04-05
+5,Equipe de TI,humano,4,2023-05-25

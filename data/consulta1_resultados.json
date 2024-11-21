@@ -1,0 +1,10 @@
+[
+    {
+        "departamento": "Desenvolvimento",
+        "media_salario": 5000.0
+    },
+    {
+        "departamento": "Financeiro",
+        "media_salario": 12000.0
+    }
+]
